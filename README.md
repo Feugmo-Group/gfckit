@@ -9,9 +9,7 @@ fractional evolution and identifies, from data, the **anomalous order α**, the
 **memory horizon λ**, and an **internal clock g** (Arrhenius / stress-weighted
 time). Built on Tarasov's parametric general fractional calculus
 (arXiv:2509.12218). The identifiability theory behind this toolkit is
-developed in a companion paper, currently in preparation for *Communications
-in Nonlinear Science and Numerical Simulation*; a citation will be added here
-once it is posted.
+developed in a companion paper.
 
 Everything numerical is **pure JAX** (no numpy/scipy in the compute path);
 matplotlib is used only for plotting.
