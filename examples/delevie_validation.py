@@ -62,7 +62,7 @@ def main():
     w_hf = jnp.logspace(np.log10(wc) + 2, np.log10(wc) + 5, 400)
     Z_hf = pore_impedance(w_hf, R, C, L)
     alpha_hf, A_hf, rms_hf = fit_cpe_exponent(w_hf, jnp.abs(Z_hf))
-    print(f"high-frequency branch (2-5 decades above w_c):")
+    print("high-frequency branch (2-5 decades above w_c):")
     print(f"  recovered alpha = {float(alpha_hf):.6f}   (exact value 1/2)")
     print(f"  fit RMS         = {float(rms_hf):.2e}")
     print(f"  mean phase      = {float(jnp.mean(jnp.angle(Z_hf, deg=True))):.4f} deg"

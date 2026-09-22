@@ -13,7 +13,7 @@ import numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 from gfckit.pybamm_gen import run_cell, dominant_mechanism
 from gfckit.aged_eis import (extract_aged_state, compute_aged_eis,
-                             eis_features, DEFAULT_FREQS)
+                             eis_features)
 
 sys.path.insert(0, os.path.dirname(__file__))
 from pybamm_targeted import CONFIGS, CONDITIONS, N_CYCLES

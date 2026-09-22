@@ -35,7 +35,7 @@ def main():
 
     path = plot_nyquist(results, out, freqs=freqs)
     written = mirror_figure(path, *[os.path.join(ROOT, d) for d in FIG_DIRS])
-    print(f"\nInterpretation: distinct Nyquist signatures => EIS separates")
+    print("\nInterpretation: distinct Nyquist signatures => EIS separates")
     print("mechanisms (LAM/LLI/resistance) that capacity fade alone cannot.")
     print("wrote figure -> " + ", ".join(written))
 

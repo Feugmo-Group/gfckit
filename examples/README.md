@@ -1,4 +1,4 @@
-# gfckit examples: the equations being solved
+# gfckit examples — the equations being solved
 
 Each example writes a figure into `../figures/`. Run from the package root, e.g.
 
@@ -10,7 +10,7 @@ All numerics are pure JAX; matplotlib is used only for the figures.
 
 ---
 
-## 1. `order_identification.py`: anomalous order from a single curve
+## 1. `order_identification.py` — anomalous order from a single curve
 
 **Model.** A degradation observable obeying a Caputo fractional relaxation with
 a constant drive. The analytic test signal is the exact solution
@@ -31,7 +31,7 @@ $\alpha=\tfrac12$ ⇒ classical Fickian (√t) growth; $\alpha\neq\tfrac12$ ⇒ 
 
 ---
 
-## 2. `multicondition.py`: shared kernel across Arrhenius clocks
+## 2. `multicondition.py` — shared kernel across Arrhenius clocks
 
 **Model.** A **general fractional** relaxation in an internal (warped) time
 $s=g_c(t)$, with the same **tempered-power-law** memory kernel for every condition:
@@ -54,22 +54,19 @@ $\mathbb D^{(K),*}_{g}=Q_g\,\mathbb D^{(K),*}\,Q_g^{-1}$, with $(Q_g f)(t)=f(g(t
 once. **Strong form** matches the operator residual (clean data); **weak form**
 matches a forward simulation to data (noise-robust).
 
-**Result.** At a single condition, $\alpha$ and $\lambda$ are coupled along a
-ridge in the objective and neither is individually identified: the best fit
-sits at $(\hat\alpha,\hat\lambda)=(0.75,0.08)$ against true $(0.5,0.5)$, an error of
-$(0.25,0.43)$. Fitting four conditions jointly breaks the ridge and the error
-falls to $(0.04,0.07)$; the weak form stays accurate under noise throughout.
+**Result.** Error falls $0.17\!\to\!0.04$ as conditions go $1\!\to\!4$
+(multi-condition identifiability); the weak form stays accurate under noise.
 
 ---
 
-## 3. `physical_data.py`: mechanistic data via Newton-Krylov
+## 3. `physical_data.py` — mechanistic data via Newton–Krylov
 
 Data are generated from **independent physics** (not from the fractional kernel),
-then handed to gfckit: a genuine cross-model test. Both models are stepped
+then handed to gfckit — a genuine cross-model test. Both models are stepped
 implicitly (backward Euler) and each nonlinear step is solved by **Jacobian-free
-Newton-Krylov** (GMRES with autodiff Jacobian-vector products).
+Newton–Krylov** (GMRES with autodiff Jacobian–vector products).
 
-### 3a. SEI growth / capacity fade: moving-boundary reaction-diffusion
+### 3a. SEI growth / capacity fade — moving-boundary reaction–diffusion
 
 Solvent diffuses through the growing SEI film $[0,L(t)]$ and reacts at the
 electrode. With Fick's second law inside the film and the Landau change of
@@ -91,7 +88,7 @@ $L(t)$ (∝ lost capacity) is **reaction-limited early** ($L\sim t$) and
 **diffusion-limited late** ($L\sim\sqrt t$). Identified effective exponent
 $\alpha\approx0.59$ (between $1$ and $\tfrac12$), trending to the Fickian $\tfrac12$.
 
-### 3b. Corrosion film growth: Point Defect Model (high-field)
+### 3b. Corrosion film growth — Point Defect Model (high-field)
 
 Oxide film thickness under a high interfacial field (Cabrera–Mott / PDM), with
 field-assisted growth competing with chemical dissolution:
@@ -103,12 +100,12 @@ $$
 
 Growth ($\propto$ field $\sim 1/L$) weakens as $L$ grows; with $k_g<k_d$ the film
 **passivates** to $L_{ss}=b\,\Delta V/\ln(k_d/k_g)$. Identified $\alpha\approx0.18$
-and a poor single-power-law fit: the **saturation is the finite memory horizon**
+and a poor single-power-law fit — the **saturation is the finite memory horizon**
 $\lambda$, i.e. this is where the *tempered* kernel of example 2 is needed.
 
 ---
 
-## 4. `fick_diffusion.py`: Fick's law in different systems
+## 4. `fick_diffusion.py` — Fick's law in different systems
 
 Baseline **normal** diffusion (mean-squared displacement $\langle x^2\rangle=2Dt$,
 $\alpha=1$). Fick's laws: flux $J=-D\,\partial_x c$; transport
@@ -122,7 +119,7 @@ $\partial_t c=D\,\partial_x^2 c$. Canonical closed-form solutions:
 | Finite slab $[0,L]$, faces at $c_s$ | $c=c_s\big[1-\tfrac{4}{\pi}\sum_{m\,\text{odd}}\tfrac{1}{m}\sin\tfrac{m\pi x}{L}\,e^{-D(m\pi/L)^2 t}\big]$ |
 
 **Key link.** Diffusion-limited **cumulative uptake** is
-$\int_0^t J(0,\tau)\,\mathrm d\tau = 2c_s\sqrt{Dt/\pi}\ \sim t^{1/2}$, the
+$\int_0^t J(0,\tau)\,\mathrm d\tau = 2c_s\sqrt{Dt/\pi}\ \sim t^{1/2}$ — the
 **parabolic growth law**. gfckit identifies its exponent as $\alpha=0.500$:
 *Fickian diffusion is exactly the $\alpha=\tfrac12$ special case that anomalous
 (memory) degradation deviates from.*

@@ -25,8 +25,7 @@ import numpy as np
 
 from gfckit.pybamm_data import load_cells
 from gfckit.mechanism_id import (build_matrix, loo_knn, confusion,
-                                 mechanism_fractions, loo_knn_regress,
-                                 grouped_knn, grouped_knn_regress,
+                                 mechanism_fractions, grouped_knn, grouped_knn_regress,
                                  groups_from_ids, r2_per_column,
                                  wilson_interval, mcnemar_exact, MECHS)
 from gfckit.plotting import plot_confusion_pair, plot_fraction_r2, mirror_figure

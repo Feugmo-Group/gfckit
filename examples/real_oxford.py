@@ -5,7 +5,6 @@ giving the CLEAN low-rate differential-voltage curves that the Zhang dataset lac
 Writes figures/real_oxford.png (capacity fade + dV/dQ evolution over aging).
 """
 import os
-import numpy as np
 
 from gfckit.real_data import load_oxford
 from gfckit.plotting import plot_oxford, mirror_figure
@@ -27,7 +26,7 @@ def main():
     p = plot_oxford(cells, out)
     written = mirror_figure(p, *[os.path.join(os.path.dirname(HERE), d)
                                  for d in FIG_DIRS])
-    print(f"\nThe C/18 dV/dQ peaks shift and shrink over aging (LLI/LAM signatures)")
+    print("\nThe C/18 dV/dQ peaks shift and shrink over aging (LLI/LAM signatures)")
     print("-- the clean low-rate differential-voltage fingerprint.")
     print("wrote figure -> " + ", ".join(written))
 

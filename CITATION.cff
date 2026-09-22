@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+title: "gfckit: a general-fractional-calculus toolkit for degradation identifiability"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - given-names: "Conrard Giresse"
+    family-names: "Tetsassi Feugmo"
+    email: giresse.feugmo@gmail.com
+version: 0.1.0
+date-released: "2026-09-09"
+license: MIT
+repository-code: "https://github.com/Feugmo-Group/gfckit"
+abstract: >-
+  gfckit identifies the memory structure of a degradation process, such as
+  battery capacity fade or corrosion film growth, from a measured aging curve,
+  and maps how much of that structure a given measurement can actually
+  recover. It models the observable with a general fractional evolution
+  equation whose kernel is a general Sonin kernel rather than a fixed power
+  law, and recovers the effective anomalous order, a tempered pair, or a full
+  order spectrum depending on what the data support. Recovery is validated
+  against independent mechanistic ground truth (a moving-boundary
+  solid-electrolyte-interphase model and a Point Defect Model of passive-film
+  growth, both solved by Jacobian-free Newton-Krylov) and against a
+  closed-form analytic benchmark (de Levie's porous electrode). A separate
+  module attributes the dominant degradation mechanism behind a simulated or
+  real battery cell from its capacity fade, differential-voltage, and
+  impedance signatures using a leave-one-configuration-out k-nearest-neighbour
+  classifier. All numerical code is pure JAX.
+keywords:
+  - fractional calculus
+  - general fractional calculus
+  - anomalous diffusion
+  - degradation modeling
+  - battery aging
+  - corrosion
+  - identifiability
+  - inverse problems
+  - jax

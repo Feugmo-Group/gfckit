@@ -8,7 +8,7 @@ them and EIS / dV-dQ are needed -- the study makes that quantitative.
 
 Writes data/pybamm_targeted/<cell_id>.npz + summary.csv (resumable).
 """
-import os, json, time, traceback
+import os, json, time
 import numpy as np
 
 from gfckit.pybamm_gen import (run_cell, reference_dvdq, dominant_mechanism,

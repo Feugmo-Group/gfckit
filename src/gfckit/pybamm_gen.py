@@ -115,11 +115,10 @@ def _discharge_curve(cycle):
 
 
 def reference_dvdq(sol, cycle_index=-1):
-    """Clean dV/dQ (DVA) and dQ/dV (ICA) from a cycle's discharge step.
+    """Clean dV/dQ (DVA) from a cycle's discharge step.
     With rpt=True in run_cell, cycle_index=-1 is the low-rate RPT -> clean peaks."""
     Q, V = _discharge_curve(sol.cycles[cycle_index])
     dvdq = np.gradient(V, Q)
-    dqdv = 1.0 / (dvdq + np.sign(dvdq + 1e-12) * 1e-6)   # ICA (incremental capacity)
     return Q, V, dvdq
 
 

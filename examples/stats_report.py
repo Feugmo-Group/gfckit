@@ -8,9 +8,7 @@ import numpy as np
 from scipy import stats
 
 from gfckit.pybamm_data import load_cells
-from gfckit.mechanism_id import (build_matrix, loo_knn, grouped_knn, confusion,
-                                 mechanism_fractions, loo_knn_regress,
-                                 grouped_knn_regress,
+from gfckit.mechanism_id import (build_matrix, loo_knn, grouped_knn, mechanism_fractions, grouped_knn_regress,
                                  r2_per_column, observable_features, MECHS)
 from gfckit.real_data import load_zhang_capacity, load_zhang_eis, eis_features
 from scipy.cluster.vq import kmeans2
@@ -52,7 +50,7 @@ def main():
 
     # Biased comparison, reported in the manuscript only to quantify the inflation.
     la, lb = loo_knn(Xa, y, 3), loo_knn(Xb, y, 3)
-    print(f"[leave-one-CELL-out, biased by replicate structure]")
+    print("[leave-one-CELL-out, biased by replicate structure]")
     print(f"capacity: acc={(la==y).mean():.3f}   cap+dVdQ: acc={(lb==y).mean():.3f}")
 
     # Configuration-level permutation null: permute whole configuration blocks,
@@ -148,7 +146,6 @@ def _adjusted_rand(a, b):
     tp = np.sum(same_a & same_b); tn = np.sum(~same_a & ~same_b)
     fp = np.sum(same_a & ~same_b); fn = np.sum(~same_a & same_b)
     # Adjusted Rand
-    from math import comb
     return 2 * (tp * tn - fp * fn) / ((tp + fp) * (fp + tn) + (tp + fn) * (fn + tn) + 1e-12)
 
 

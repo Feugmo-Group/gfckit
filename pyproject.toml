@@ -8,16 +8,48 @@ version = "0.1.0"
 description = "General-fractional-calculus toolkit for data-driven identification of degradation memory kernels (batteries, corrosion)."
 readme = "README.md"
 requires-python = ">=3.9"
-license = { text = "MIT" }
+license = { file = "LICENSE" }
+authors = [
+    { name = "Conrard Giresse Tetsassi Feugmo", email = "giresse.feugmo@gmail.com" },
+]
+keywords = [
+    "fractional calculus",
+    "general fractional calculus",
+    "anomalous diffusion",
+    "degradation modeling",
+    "battery aging",
+    "corrosion",
+    "identifiability",
+    "inverse problems",
+    "jax",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
 dependencies = ["jax>=0.4"]
+
+[project.urls]
+Repository = "https://github.com/Feugmo-Group/gfckit"
 
 [project.optional-dependencies]
 plot = ["matplotlib>=3.5"]
 test = ["pytest>=7"]
 
-[project.urls]
-Repository = "https://github.com/Feugmo-Group/gfckit"
-Issues = "https://github.com/Feugmo-Group/gfckit/issues"
-
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["F"]

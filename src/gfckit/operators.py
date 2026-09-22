@@ -7,7 +7,6 @@ All operators here are the discrete building blocks described in
   * apply_gfd                 -- general fractional derivative given weights
   * substitution_gfd          -- Tarasov parametric GFD: warp -> apply -> unwarp
 """
-import jax
 import jax.numpy as jnp
 from jax.scipy.special import gammaln, gammainc
 

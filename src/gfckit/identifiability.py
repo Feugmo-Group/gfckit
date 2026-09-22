@@ -15,7 +15,6 @@ The sweep needs ~10^5 forward solves, so the fixed-Talbot inversion of
 whole response is then one array expression and the sweep vmaps over spectra.
 Agrees with ``laplace.distributed_order_response`` to ~4e-10 relative.
 """
-import itertools
 
 import jax
 import jax.numpy as jnp

@@ -93,7 +93,7 @@ def extract_aged_state(sol):
 def aged_parameter_values(aged, parameter_set="OKane2022"):
     """Build a ParameterValues carrying the aged state."""
     p = pybamm.ParameterValues(parameter_set)
-    fresh_Li = None
+
     def setif(key, val):
         if key in p and val is not None and np.isfinite(val):
             p[key] = float(val)

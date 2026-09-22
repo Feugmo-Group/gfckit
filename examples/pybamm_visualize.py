@@ -6,12 +6,10 @@ Writes figures/pybamm_overview.png:
   (c) dV/dQ signatures, one representative cell per mechanism
   (d) dominant-mechanism map over config x condition (shows the flips)
 """
-import os, glob, sys
-import numpy as np
+import os, sys
 
 from gfckit.pybamm_data import load_cells
-from gfckit.plotting import (plot_pybamm_overview, plot_pybamm_curves,
-                             mirror_figure)
+from gfckit.plotting import (plot_pybamm_overview, plot_pybamm_curves)
 
 # The manuscript figure directory is written from here. It used to be refreshed
 # by hand, and two figures ended up out of step with their generators.

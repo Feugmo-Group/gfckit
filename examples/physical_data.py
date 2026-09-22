@@ -56,7 +56,7 @@ def main():
     a_pdm = float(recover_order_weak(L_pdm, t_pdm, grid2))
     print(f"PDM film growth:         effective alpha = {a_pdm:.3f}  "
           f"(passivates to L_ss={L_ss:.2f} -> a single power law fits poorly;")
-    print(f"                          the saturation is the finite memory horizon lambda)")
+    print("                          the saturation is the finite memory horizon lambda)")
 
     # the local slope over the fit window is what Fig. 5(c) shows; print it so
     # the trend the body claims is checkable from the log, not only from the plot

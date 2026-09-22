@@ -5,7 +5,6 @@ figures/real_zhang_overview.png -- the real-data counterpart of the PyBaMM study
 to pre-empt the "does it hold on real data?" question.
 """
 import os
-import numpy as np
 
 from gfckit.real_data import load_zhang_capacity, load_zhang_eis
 from gfckit.plotting import plot_real_overview

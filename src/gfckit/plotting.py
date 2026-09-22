@@ -579,11 +579,11 @@ def plot_real_features(rows, r_eis, r_shape, out_path):
     ax[1].axhline(0.5, ls="--", color="0.15", lw=1.0,
                   label=r"$\sqrt{n}$ (diffusion-limited)")
     ax[1].axhline(1.0, ls=":", color="0.4", lw=1.0, label="linear")
-    ax[1].set(xlabel=f"temperature [{DEG}C]", ylabel="log-log exponent $p$")
+    ax[1].set(xlabel=f"temperature [{DEG}C]", ylabel=r"log-log exponent $\gamma$")
     ax[1].set_title("capacity-loss shape exponent by temperature")
     ax[1].set_xticks(temps)
     ax[1].set_xlim(min(temps) - 5, max(temps) + 5)
-    ax[1].set_ylim(0, 1.18)          # the p=1.0 reference used to sit half
+    ax[1].set_ylim(0, 1.18)          # the gamma=1.0 reference used to sit half
     ax[1].legend(fontsize=7, loc="lower right")  # clipped by the top spine
     ax[1].grid(alpha=0.25)
 

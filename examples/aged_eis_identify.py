@@ -7,7 +7,7 @@ to 45.8% on capacity alone).
 Compares capacity / dV/dQ / aged-EIS feature sets on the same 24 cells, against
 a permutation null computed with the same grouping.
 """
-import os, sys, csv, json
+import os, sys, csv
 import numpy as np
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
