@@ -194,10 +194,31 @@ python examples/delevie_validation.py      # closed-form CPE benchmark, alpha = 
 python examples/pybamm_ensemble.py         # build the labelled battery aging ensemble
 ```
 
+## Reproducing the battery paper
+
+Every number and figure in *Data-driven identifiability of battery degradation
+mechanisms* (Journal of Energy Storage, under review) is reproduced by the
+scripts in [`reproduce/battery/`](reproduce/battery/README.md):
+
+```bash
+pip install -e ".[battery]"
+reproduce/battery/fetch_real_data.sh   # the two public real-cell datasets, once
+reproduce/battery/run_all.sh           # all analyses and figures from the shipped data
+reproduce/battery/run_all.sh --regenerate   # optional: re-simulate the data with PyBaMM first
+```
+
+The PyBaMM ensemble and the per-cell aged impedance ship in `data/`, so the
+analyses need no simulation. [`reproduce/battery/README.md`](reproduce/battery/README.md)
+maps each result in the paper to the script that produces it and the value it
+should print.
+
 ## Data
 
-`data/` holds the loaders and manifests for the open real-cell datasets used
-to test transfer beyond the synthetic benchmark; see `data/DATA.md`.
+`data/pybamm_targeted/` (the 24-cell PyBaMM ensemble) and `data/aged_eis/`
+(per-cell aged impedance) ship with the repository; see
+[`data/DATA.md`](data/DATA.md). The real-cell datasets are public but not
+redistributed here; `reproduce/battery/fetch_real_data.sh` downloads them into
+`data/real/`.
 
 ## Testing
 

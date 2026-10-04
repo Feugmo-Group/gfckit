@@ -44,7 +44,8 @@ def main():
     root = os.path.dirname(HERE)
     for d in FIG_DIRS.get(subdir, []):
         dest = os.path.join(root, d)
-        os.makedirs(dest, exist_ok=True)
+        if not os.path.isdir(dest):          # standalone clone: no manuscript tree
+            continue
         import shutil
         for ext in (".pdf", ".png"):
             src = os.path.splitext(p1)[0] + ext

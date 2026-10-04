@@ -43,6 +43,12 @@ Repository = "https://github.com/Feugmo-Group/gfckit"
 [project.optional-dependencies]
 plot = ["matplotlib>=3.5"]
 test = ["pytest>=7"]
+# reproduce the battery paper (reproduce/battery/). The shipped ensemble was generated
+# with PyBaMM 26.7.0.0; 26.5.0, 26.6.2, 26.7.1 and 26.8.0 all age the stress-driven LAM
+# cells slightly differently, which moves the dV/dQ results (see reproduce/battery/README.md).
+# scikit-learn 1.9 changed LDA on this problem (12.5% -> 20.8%); 1.5-1.8 match the paper.
+battery = ["pybamm==26.7.0.0", "pybammeis==0.1.6", "scikit-learn==1.8.0", "scipy>=1.11",
+           "matplotlib>=3.5"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

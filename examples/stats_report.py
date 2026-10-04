@@ -88,6 +88,10 @@ def main():
 
     # === REAL: Zhang R_ct vs fade ===
     base = os.path.join(HERE, "data", "real", "zhang2020")
+    if not os.path.isdir(base):
+        print("\n(real-cell statistics skipped: data/real/zhang2020 not found; "
+              "run reproduce/battery/fetch_real_data.sh)")
+        return
     cap = load_zhang_capacity(base)
     eis = load_zhang_eis(base)
     common = sorted(set(cap) & set(eis))

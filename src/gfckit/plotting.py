@@ -398,8 +398,9 @@ def mirror_figure(paths, *dirs):
                 continue
             out.append(src)
             for d in dirs:
-                if d:
-                    os.makedirs(d, exist_ok=True)
+                # mirror only into manuscript folders that exist (the development
+                # tree); a standalone clone has none and must not grow one
+                if d and os.path.isdir(d):
                     shutil.copy2(src, os.path.join(d, os.path.basename(src)))
     return out
 
