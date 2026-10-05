@@ -59,7 +59,7 @@ move: capacity + dV/dQ scores 33.3% (8/24) instead of 20.8%.
 ## What each step reproduces
 
 Section numbers refer to the paper. Every value below was checked against a
-clean run of these scripts, except the one marked (*).
+clean run of these scripts.
 
 ### Synthetic benchmark
 
@@ -71,7 +71,7 @@ clean run of these scripts, except the one marked (*).
 | Sec. 3.2: configuration-level permutation null | `11_stats` | null mean 14.1%, p = 0.064 |
 | Sec. 3.2: capacity + dV/dQ | `10_identify`, `11_stats` | 20.8% (5/24), CI [9.2, 40.5]%, p = 0.30; McNemar p = 0.125 |
 | Sec. 3.2: leave-one-cell-out (biased) | `10_identify` | 45.8% |
-| Sec. 3.2: eight further classifiers, family-maximum null, tie-break and scaler checks | `12_estimator_ablation` | span 12.5% to 50.0%; 1-NN 50.0% (p = 0.026 alone; 0.079 as family maximum, null mean 29.6% (*)); first-class-wins tie-break 29.2%; LDA 12.5% to 50.0% and nearest centroid 41.7% to 50.0% with dV/dQ |
+| Sec. 3.2: eight further classifiers, family-maximum null, tie-break and scaler checks | `12_estimator_ablation` | span 12.5% to 50.0%; 1-NN 50.0% (p = 0.026 alone; 0.079 as family maximum, null mean 29.6%); first-class-wins tie-break 29.2%; LDA 12.5% to 50.0% and nearest centroid 41.7% to 50.0% with dV/dQ |
 | Sec. 3.2: per-class recall from capacity | `13_aged_eis_identify` | cracks 4/6, LAM 3/6, SEI 2/7, plating 0/5 |
 | Sec. 3.2: mechanism-fraction R^2 from capacity | `10_identify`, `11_stats` | SEI -0.77, plating -0.77, cracks -0.46, LAM +0.53 |
 | Sec. 3.2: LAM grades smoothly, plating is near binary | `15_paper_numbers` | LAM fade 2% to 95%; plating 66-72% or under 1%; mean fade 0.41 (plating) vs 0.29 (LAM) |
@@ -109,9 +109,6 @@ Fig. 4 (the identification pipeline) is a LaTeX diagram with no computed content
 
 ## Notes
 
-- (*) The family-maximum null (2,000 permutations) had not finished its
-  verification run when this page was written; the value shown is the one in
-  the paper.
 
 - The permutation tests use fixed seeds, so the p-values reproduce exactly.
   `11_stats` and `13_aged_eis_identify` compute the capacity null with two
