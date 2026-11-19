@@ -106,7 +106,7 @@ DISPLAY_NAME = {
     "multiterm": "two-order (distributed)",
     "variable_order": "variable order",
     "knee_battery": "capacity knee",
-    "pdm_passivation": "passivating (PDM)",
+    "pdm_passivation": "passivating (oxide growth)",
     "powerlaw_0.5": r"power law, $\alpha=0.5$",
     "powerlaw_0.75": r"power law, $\alpha=0.75$",
 }
@@ -256,7 +256,7 @@ def plot_physical_models(t_sei, L_sei, sei_fit, alpha_sei,
     ax[1].axhline(L_ss, ls=":", color="0.35", lw=1.0)
     # labelled on the curve rather than in a legend: at this width a two-entry
     # legend is wider than the axes and its handles hang past the left spine
-    ax[1].text(tp[-1], Lp[-1] * 0.93, "PDM oxide film ", color="C2",
+    ax[1].text(tp[-1], Lp[-1] * 0.93, "oxide film ", color="C2",
                fontsize=7.0, ha="right", va="top")
     ax[1].text(tp[1], L_ss * 0.978, fr" steady thickness $L_{{ss}}={L_ss:.2f}$",
                color="0.35", fontsize=7.0, ha="left", va="top")
@@ -290,7 +290,7 @@ def plot_physical_models(t_sei, L_sei, sei_fit, alpha_sei,
     i_s, i_p = int(s_s.argmax()), int(s_p.argmax())
     ax[2].text(t_s[i_s], s_s[i_s] + 0.045, "SEI film", color="C0",
                fontsize=7.0, ha="center", va="bottom")
-    ax[2].text(t_p[i_p], s_p[i_p] + 0.045, "PDM oxide film", color="C2",
+    ax[2].text(t_p[i_p], s_p[i_p] + 0.045, "oxide film", color="C2",
                fontsize=7.0, ha="center", va="bottom")
     ax[2].set(xlabel="time $t$ (model units)",
               ylabel=r"local slope $\mathrm{d}\ln L/\mathrm{d}\ln t$")
@@ -1424,7 +1424,7 @@ def plot_order_spectra(results, out_path):
                           label="true order of the generator")]
     fig.legend(handles=handles, loc="lower center", ncol=3, fontsize=7.0,
                bbox_to_anchor=(0.5, 0.048))
-    fig.text(0.5, 0.012, "All panels share one weight axis. The PDM generator "
+    fig.text(0.5, 0.012, "All panels share one weight axis. The oxide-growth generator "
              "contains no fractional order, so its panel carries no true-order "
              "line.", ha="center", va="bottom", fontsize=7.0, color="0.3")
     out = save_paper_figure(fig, out_path)
@@ -1519,7 +1519,7 @@ def plot_benchmark_diagnostic(datasets, out_path):
     ax[1].set_yticklabels(names)
     ax[1].axvline(0.05, ls="--", color="k", lw=0.9)
     span = max(svar)
-    ax[1].set_xlim(0, span * 1.30)
+    ax[1].set_xlim(0, span * 1.62)
     ax[1].set_ylim(len(names) - 0.45, -0.85)
     # above the top bar, where it clears both the printed values and the key
     ax[1].text(0.05 + 0.016 * span, -0.62, "threshold 0.05",
@@ -1532,9 +1532,9 @@ def plot_benchmark_diagnostic(datasets, out_path):
     ax[1].set(xlabel="standard deviation of the local exponent\n"
                      r"(0 $\rightarrow$ power law)")
     import matplotlib.patches as mpatches
-    ax[1].legend(handles=[mpatches.Patch(color="C0", label="power-law family"),
-                          mpatches.Patch(color="C3", label="non-power-law family")],
-                 loc="upper right", bbox_to_anchor=(1.005, 1.005), fontsize=7.0)
+    ax[1].legend(handles=[mpatches.Patch(color="C0", label="power law"),
+                          mpatches.Patch(color="C3", label="not power law")],
+                 loc="center right", bbox_to_anchor=(1.005, 0.80), fontsize=6.5, handlelength=1.2)
     panel_label(ax[1], "(b)", x=-0.42)
 
     fig.tight_layout(w_pad=2.4)
