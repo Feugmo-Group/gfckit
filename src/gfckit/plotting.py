@@ -1026,7 +1026,7 @@ def plot_dynamic_range(t, slope, alphas, D_grid, resolved_frac,
                        xy=(d_required, 0.9), xytext=(d_required + 0.7, 0.60),
                        fontsize=7.0, color="C3",
                        arrowprops=dict(arrowstyle="->", color="C3", lw=0.8))
-    ax[1].set(xlabel="observation window width\n(decades, centred on crossover)",
+    ax[1].set(xlabel="observation window width\n(decades, centered on crossover)",
               ylabel="fraction of the slope range covered")
     ax[1].set_xlim(Dg.min() - 0.2, Dg.max() + 0.2)
     ax[1].set_ylim(0.3, 1.06)
