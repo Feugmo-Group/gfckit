@@ -1245,7 +1245,7 @@ def plot_delevie(w, Zmag, wc, alpha_hf, rms_hf, w_ex, ex, geoms, floor,
               fontsize=7.0, color="0.35", ha="center", va="top")
     ax_g.legend(loc="lower right", fontsize=7.0,
                 title=f"{len(geoms)} pores, equal $R/C$\n"
-                      "(the first two coincide exactly)", title_fontsize=7.0)
+                      "(the first two are semi-infinite here\nand so coincide)", title_fontsize=7.0)
     panel_label(ax_g, "(c)", x=-0.085)
 
     out = save_paper_figure(fig, out_path)
