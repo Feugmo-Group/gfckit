@@ -1017,18 +1017,17 @@ def plot_dynamic_range(t, slope, alphas, D_grid, resolved_frac,
 
     Dg, rf = _np(D_grid), _np(resolved_frac)
     ax[1].axvspan(exp_window[0], exp_window[1], color="0.88", zorder=0,
-                  label=f"typical experiment, {exp_window[0]:g} to "
-                        f"{exp_window[1]:g} decades")
+                  label=f"{exp_window[0]:g} to {exp_window[1]:g} decades")
     ax[1].axhline(0.9, ls="--", color="0.35", lw=0.9)
     ax[1].plot(Dg, rf, "o-", color="C0", ms=3.6)
     if d_required is not None:
         ax[1].plot([d_required], [0.9], "*", color="C3", ms=8, zorder=5)
-        ax[1].annotate(f"$D\\approx{d_required:.1f}$ decades\nresolves 90%",
+        ax[1].annotate(f"$D\\approx{d_required:.1f}$ decades\ncovers 90% of the slope range",
                        xy=(d_required, 0.9), xytext=(d_required + 0.7, 0.60),
                        fontsize=7.0, color="C3",
                        arrowprops=dict(arrowstyle="->", color="C3", lw=0.8))
-    ax[1].set(xlabel="observation window width\n(decades, centered on crossover)",
-              ylabel="fraction of the order range resolved")
+    ax[1].set(xlabel="observation window width\n(decades, centred on crossover)",
+              ylabel="fraction of the slope range covered")
     ax[1].set_xlim(Dg.min() - 0.2, Dg.max() + 0.2)
     ax[1].set_ylim(0.3, 1.06)
     ax[1].legend(loc="lower right")
@@ -1087,7 +1086,7 @@ def plot_keystone(orders_ref, w_ref, twin, t, u_ref, u_twin, gap, floor,
     cdf_b = np.array([np.sum(np.array([w_lo, 1 - w_lo])[np.array([a_lo, a_hi]) <= k])
                       for k in knots])
     ax_c.fill_between(knots, cdf_a, cdf_b, color="0.6", alpha=0.55,
-                      label=f"$W_1$ = {gap:.1%} of the axis")
+                      label=f"$W_1$ = {gap * 0.9:.3f}\n({gap:.1%} of the 0.05$-$0.95 range)")
     ax_c.plot(knots, cdf_a, "C0", lw=1.2)
     ax_c.plot(knots, cdf_b, "C3--", lw=1.2)
     ax_c.set(xlabel=r"order $\alpha$", ylabel="CDF", ylim=(-0.02, 1.16))
@@ -1137,7 +1136,7 @@ def plot_keystone(orders_ref, w_ref, twin, t, u_ref, u_twin, gap, floor,
         ax_g.plot(_np(D_grid), _np(curve), marker=mk, ls=ls, ms=3.6, lw=1.2,
                   color=c, label=f"noise floor {fl:.1%}")
     ax_g.axvspan(1.0, 3.0, color="0.88", zorder=0)
-    ax_g.text(2.0, 0.012, "typical experiment", ha="center", fontsize=7.0,
+    ax_g.text(2.0, 0.012, "1 to 3 decades", ha="center", fontsize=7.0,
               color="0.35")
     ax_g.set(xlabel="observation window (decades)",
              ylabel=r"max admissible $W_1$ gap")
